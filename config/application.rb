@@ -80,7 +80,7 @@ module Propile
     end
 
     def self.mail_subject_prefix
-      "[Agile France 2014]"
+      "[Agile France 2015]"
     end
 
     def self.version
