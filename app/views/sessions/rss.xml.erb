@@ -9,8 +9,8 @@
       <lastBuildDate><%= @last_update.strftime("%a, %-d %b %Y %H:%I:%M GMT") %></lastBuildDate>
       <docs>http://blogs.law.harvard.edu/tech/rss</docs>
       <generator>Propile</generator>
-      <managingEditor>contact@conference-agile.fr</managingEditor>
-      <webMaster>contact@conference-agile.fr</webMaster>
+      <managingEditor><%= Propile::Application.mail_sender %></managingEditor>
+      <webMaster><%= Propile::Application.mail_sender %></webMaster>
       <%= render 'sessions/session_rss' , :this_session => @this_session %>
      
       <% @this_session.reviews.each do |review| %>

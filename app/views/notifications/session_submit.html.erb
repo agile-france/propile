@@ -11,7 +11,7 @@ Vous êtes également invité à participer à notre process de revue collaborat
 
 <p>Merci de vous <%= link_to "connecter", account_response_session_url(@login_guid) %> et de vous joindre à nous pour faire aux autres le merveilleux cadeau du feedback.</p>
 
-<p>Si vous avez le moindre problème (ou question), <a href="mailto:contact@conference-agile.fr">écrivez-nous</a>. </p>
+<p>Si vous avez le moindre problème (ou question), <a href="mailto:<%= Propile::Application.mail_sender %>">écrivez-nous</a>. </p>
 
 <p>Bravo et merci,</p>
 

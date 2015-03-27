@@ -60,7 +60,7 @@
     <hr/>
     <div class="submenu"> <%= yield :sub_menu %> </div>
     <div class="alignright"> 
-      <a href="mailto:contact@conference-agile.fr">Problèmes ou questions
+      <a href="mailto:<%= Propile::Application.mail_sender %>">Problèmes ou questions
       (<%= Propile::Application.version %>)
       </a> 
     </div> 

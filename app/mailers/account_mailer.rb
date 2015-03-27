@@ -1,5 +1,5 @@
 class AccountMailer < ActionMailer::Base
-  default from: "contact@conference-agile.fr"
+  default from: Propile::Application.mail_sender
 
   def confirmation( account )
     @account = account
