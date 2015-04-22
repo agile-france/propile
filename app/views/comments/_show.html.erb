@@ -1,4 +1,8 @@
-<h4>Comment by <%= link_to w(comment.presenter.name), comment.presenter %></h4>
+<% if should_hide_presenter comment %>
+    <h4>Commenté par l'orateur de cette session</h4>
+<% else %>
+    <h4>Commenté par <%= link_to w(comment.presenter.name), comment.presenter %></h4>
+<% end %>
 
 <div class="lessoutlined ">
   <%= wikinize( comment.body ) %>
@@ -7,8 +11,12 @@
 
 <% if !comment.new_record? %> 
 <div class="alignright">
-  Comment Created: <%= l comment.created_at %> -- 
-  Modified: <%= l comment.updated_at %>  
-  by <%= link_to w(comment.presenter.name), comment.presenter %>
+  Commentaire créé le <%= l comment.created_at %> --
+  Modifié le  <%= l comment.updated_at %>
+    <% if should_hide_presenter comment %>
+        par l'orateur de cette session
+    <% else %>
+        par <%= link_to w(comment.presenter.name), comment.presenter %>
+    <% end %>
 </div>
 <% end %>

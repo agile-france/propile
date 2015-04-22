@@ -1,4 +1,9 @@
-Un nouveau commentaire a été déposé sur la revue de <%= @review.presenter.name %> pour la session <%= @session.title %> proposée par <%= @comment.presenter.name %>:
+Un nouveau commentaire a été déposé sur la revue de <%= @review.presenter.name %> pour la session <%= @session.title %> proposée par
+<% if should_hide_presenter @comment %>
+    proposée par un orateur
+<% else %>
+    proposée par <%= @comment.presenter.name %>
+<% end %> :
 
     Nous attendons descandidats orateurs qu'ils s'entraident à développer leurs propositions, en s'appuyant sur le feedback. 
     Vous pouvez faire des retours sur les sujets proposés par les autres, puis améliorer vos propositions à partir des suggestions que vous font les autres. 
@@ -9,7 +14,11 @@ Vous pouvez trouver le commentaire ici: <%= comment_url(@comment) %>
 L'équipe d'orga Agile France.
 
 ---------------------------------------------------
-<%= @comment.presenter.name  %> a écrit:
+<% if should_hide_presenter @comment %>
+L'orateur a écrit :
+<% else %>
+<%= @comment.presenter.name  %> a écrit :
+<% end %>
 
 <%= @comment.body %>
 

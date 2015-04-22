@@ -1,4 +1,10 @@
-<p>Un nouveau commentaire a été déposé sur la revue de <%= @review.presenter.name %> pour la session <b><%= @session.title %></b> proposée par <%= @comment.presenter.name %>.</p>
+<p>Un nouveau commentaire a été déposé sur la revue de <%= @review.presenter.name %> pour la session <b><%= @session.title %></b>
+    <% if should_hide_presenter @comment %>
+        proposée par un orateur
+    <% else %>
+        proposée par <%= @comment.presenter.name %>.
+    <% end %> :
+</p>
 <div style="margin-left:10px;"><i>
     Nous attendons des candidats orateurs qu'ils s'entraident à développer leurs propositions, en s'appuyant sur le feedback. 
     Vous pouvez faire des retours sur les sujets proposés par les autres, puis améliorer vos propositions à partir des suggestions que vous font les autres. 
@@ -10,7 +16,13 @@
 <p>L'équipe d'orga Agile France.</p>
 <hr>
 <p>Voici le commentaire:</p> 
-<p><i><%= @comment.presenter.name  %> a écrit:</i></p>
+<p>
+    <% if should_hide_presenter @comment %>
+    <i>L'orateur a écrit :</i>
+    <% else %>
+    <i><%= @comment.presenter.name  %> a écrit :</i>
+    <% end %>
+</p>
 
 <%= wikinize @comment.body %>
 

@@ -16,7 +16,12 @@
   <tr>
     <td><%= comment.review.session && w(comment.review.session.title) %></td>
     <td><%= comment.review.presenter && w(comment.review.presenter.name) %></td>
-    <td><%= w(comment.presenter.name) %></td>
+      <% if should_hide_presenter comment %>
+          <td>l'orateur</td>
+      <% else %>
+          <td><%= w(comment.presenter.name) %></td>
+      <% end %>
+
     <td><%= link_to 'Show', comment %></td>
     <td><%= guarded_link_to 'Edit', controller: 'comments', action: 'edit', id: comment %> </td>
   </tr>

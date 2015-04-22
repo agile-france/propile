@@ -95,6 +95,10 @@ module ApplicationHelper
     raw(%Q{<input class="collapsebutton" type="button" id="#{div_id}Button" value='#{default_value}' onclick="showHide('#{div_id}')" >})
   end
 
+  def should_hide_presenter(comment)
+    !@show_presenter_active and comment.review.session.presenter_names.include? comment.presenter.name
+  end
+
   def collapse_button_initially_open(div_id)
     collapse_button(div_id, false)
   end
