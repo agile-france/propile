@@ -14,6 +14,6 @@ notifications:
   disabled: true
 deploy:
   provider: heroku
-  app: call4parper-agileconf
+  app: call4paper-agileconf
   api_key:
     secure: W1QD9Z0m+pZVSaLlgP5LxnlCF5bW3h+1fEdsPWBmhtRu5Chcx0+tLirCGvWYVsH/CLVYHOWmwgKd6BO6FnQzXEyoQTBXkhArFQTOqk63I+CjtQUut0yckh7kgYGz+rjeIq74EqaZbDc9d0B/s7r7FkoYQeBnoMLB9OuMmJiW7uQ=
