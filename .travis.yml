@@ -1,14 +1,18 @@
 language: ruby
 rvm:
-  - 1.9.3
+- 1.9.3
 env:
-  - DB=postgresql PROPILE_TEST_DB_NAME=propile_test PROPILE_TEST_DB_USER=test PROPILE_TEST_DB_PASS=test
+- DB=postgresql PROPILE_TEST_DB_NAME=propile_test PROPILE_TEST_DB_USER=test PROPILE_TEST_DB_PASS=test
 script:
-  - RAILS_ENV=test bundle exec rake --trace db:migrate
-  - RAILS_ENV=test bundle exec rspec spec/
+- RAILS_ENV=test bundle exec rake --trace db:migrate
+- RAILS_ENV=test bundle exec rspec spec/
 before_script:
-  - psql -c 'create database propile_test' -U postgres
-  - psql -c "create user test with password 'test'" -U postgres
-  - psql -c 'grant all privileges on database propile_test to test' -U postgres
+- psql -c 'create database propile_test' -U postgres
+- psql -c "create user test with password 'test'" -U postgres
+- psql -c 'grant all privileges on database propile_test to test' -U postgres
 notifications:
   disabled: true
+deploy:
+  provider: heroku
+  api_key:
+    secure: W1QD9Z0m+pZVSaLlgP5LxnlCF5bW3h+1fEdsPWBmhtRu5Chcx0+tLirCGvWYVsH/CLVYHOWmwgKd6BO6FnQzXEyoQTBXkhArFQTOqk63I+CjtQUut0yckh7kgYGz+rjeIq74EqaZbDc9d0B/s7r7FkoYQeBnoMLB9OuMmJiW7uQ=
