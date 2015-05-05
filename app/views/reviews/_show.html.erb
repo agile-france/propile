@@ -1,11 +1,5 @@
 
-<h3>Review  by  </h3>
-<% if @show_presenter_active  %>
-    <%= link_to w(review.presenter.name), review.presenter %>
-<% else %>
-    [reviewer name voluntarily hidden]
-<% end %>
-</h3>
+<h3>Review  by <% if @show_presenter_active  %><%= link_to w(review.presenter.name), review.presenter %><% else %>[reviewer name voluntarily hidden]<% end %></h3>
 
 What I like:
 <div class="lessoutlined"> 
