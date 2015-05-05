@@ -1,4 +1,5 @@
-<p>Une nouvelle revue a été déposée pour la session <b><%= @session.title %></b> de <%= @review.presenter.name %>.</p>
+<p>Une nouvelle revue a été déposée pour la session <b><%= @session.title %></b> par 
+<% if @show_presenter_active  %><%= @review.presenter.name %><% else %>quelqu'un de la communauté<% end %>.</p>
 <div style="margin-left:10px;"><i>
     Nous attendons descandidats orateurs qu'ils s'entraident à développer leurs propositions, en s'appuyant sur le feedback. 
     Vous pouvez faire des retours sur les sujets proposés par les autres, puis améliorer vos propositions à partir des suggestions que vous font les autres. 
@@ -11,7 +12,7 @@
 <hr>
 
 <p>Voici la revue:</p> 
-<p><i><%= @review.presenter.name  %> a écrit:</i></p>
+<p><i><% if @show_presenter_active  %><%= @review.presenter.name %><% else %>Cette personne<% end %> a écrit:</i></p>
 
 
 <p><b>Ce que j'aime:</b></p>
