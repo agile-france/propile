@@ -1,5 +1,11 @@
 
-<h3>Review  by <%= link_to w(review.presenter.name), review.presenter %> </h3>
+<h3>Review  by  </h3>
+<% if @show_presenter_active  %>
+    <%= link_to w(review.presenter.name), review.presenter %>
+<% else %>
+    [reviewer name voluntarily hidden]
+<% end %>
+</h3>
 
 What I like:
 <div class="lessoutlined"> 
@@ -17,6 +23,6 @@ Improvement opportunities:
 <div class="alignright">
   Review Created: <%= l review.created_at %> -- 
   Modified: <%= l review.updated_at %> 
-  by <%= link_to w(review.presenter.name), review.presenter %>
+  by <% if @show_presenter_active  %> <%= link_to w(review.presenter.name), review.presenter %> <% else %>[reviewer name voluntarily hidden]<% end %>
 </div>
 <% end %>
