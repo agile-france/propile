@@ -1,4 +1,4 @@
-Une nouvelle revue a été déposée pour la session <%= @session.title %> de <%= @review.presenter.name %>:
+Une nouvelle revue a été déposée pour la session <%= @session.title %> par <% if @show_presenter_active  %><%= @review.presenter.name %><% else %>quelqu'un de la communauté<% end %>:
 
     Nous attendons descandidats orateurs qu'ils s'entraident à développer leurs propositions, en s'appuyant sur le feedback. 
     Vous pouvez faire des retours sur les sujets proposés par les autres, puis améliorer vos propositions à partir des suggestions que vous font les autres. 
@@ -11,7 +11,7 @@ L'équipe d'orga Agile France.
 ---------------------------------------------------
 Voici la revue:
 
-<%= @review.presenter.name  %> a écrit:
+<% if @show_presenter_active  %><%= @review.presenter.name %><% else %>Cette personne<% end %> a écrit:
 
 Ce que j'aime:
 <%= @review.things_i_like %>
