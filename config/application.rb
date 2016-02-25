@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 require File.expand_path('../boot', __FILE__)
 
+# This should fix recaptcha
+require "net/http"
+
 # Pick the frameworks you want:
 require "active_record/railtie"
 require "action_controller/railtie"
