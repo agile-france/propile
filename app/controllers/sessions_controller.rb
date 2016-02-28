@@ -104,7 +104,7 @@ class SessionsController < ApplicationController
       #data row
       @sessions.each do |session| 
         csv << [ session.title, session.sub_title, 
-          if @show_presenter_active session.presenter_names else "(hidden)" end,
+          if @show_presenter_active then session.presenter_names else "(hidden)" end,
           session.created_at, session.updated_at,
           session.session_type, session.topic_name, session.duration,
           session.reviews.size,
