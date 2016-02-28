@@ -1,4 +1,4 @@
-<p>Un nouveau commentaire a été déposé sur la revue de <%= @review.presenter.name %> pour la session <b><%= @session.title %></b>
+<p>Un nouveau commentaire a été déposé sur <% if @show_presenter_active  %>la revue de <%= @review.presenter.name %><% else %>la revue de quelqu'un de la communauté<% end %> pour la session <b><%= @session.title %></b>
     <% if should_hide_presenter @comment %>
         proposée par un orateur
     <% else %>
