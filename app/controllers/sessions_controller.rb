@@ -92,24 +92,20 @@ class SessionsController < ApplicationController
     @sessions = Session.all
     session_csv = CSV.generate(options = { :col_sep => ';' }) do |csv| 
       #header row
-      csv << [ "Titre", "Soustitre" ]
-      if @show_presenter_active
-        csv << [ "Orateurs" ]
-      end
-      csv << [ "Créée", "Modifiée",
+      csv << [ "Titre", "Soustitre", "Orateurs", "Créée", "Modifiée",
         "Langue", "Nature", "Durée",
         "Revue",
         "Objectif",
         "Public visé", "Niveau d'expérience",
         "Nb participants max", "Ordinateur", "Autres restrictions", "Disposition salle", "Matériel",
         "Desc. Courte" ]
+      end
+      csv << [ 
       #data row
       @sessions.each do |session| 
-        csv << [ session.title, session.sub_title ].collect {|field| (field.blank?) ?  "(none)" : field }
-        if @show_presenter_active
-          csv << [ session.presenter_names ].collect {|field| (field.blank?) ?  "(none)" : field }
-        end
-        csv << [ session.created_at, session.updated_at,
+        csv << [ session.title, session.sub_title, 
+          if @show_presenter_active session.presenter_names else "(hidden)" end,
+          session.created_at, session.updated_at,
           session.session_type, session.topic_name, session.duration,
           session.reviews.size,
           session.session_goal,
