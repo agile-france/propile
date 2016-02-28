@@ -96,7 +96,7 @@ module ApplicationHelper
   end
 
   def should_hide_presenter(comment)
-    !@show_presenter_active and comment.review.session.presenter_names.include? comment.presenter.name
+    !@show_presenter_active
   end
 
   def collapse_button_initially_open(div_id)
