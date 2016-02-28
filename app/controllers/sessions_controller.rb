@@ -99,7 +99,6 @@ class SessionsController < ApplicationController
         "Public visé", "Niveau d'expérience",
         "Nb participants max", "Ordinateur", "Autres restrictions", "Disposition salle", "Matériel",
         "Desc. Courte" ]
-      end
       #data row
       @sessions.each do |session| 
         csv << [ session.title, session.sub_title, @show_presenter_active ? session.presenter_names : "(hidden)",
