@@ -1,4 +1,4 @@
-Un nouveau commentaire a été déposé sur la revue de <%= @review.presenter.name %> pour la session <%= @session.title %> proposée par
+Un nouveau commentaire a été déposé <% if should_hide_presenter @comment %>la revue de <%= @review.presenter.name %><% else %>la revue quelqu'un de la communauté<% end %>pour la session <%= @session.title %> proposée par
 <% if should_hide_presenter @comment %>
     proposée par un orateur
 <% else %>
