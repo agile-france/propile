@@ -92,8 +92,7 @@ class SessionsController < ApplicationController
     @sessions = Session.all
     session_csv = CSV.generate(options = { :col_sep => ';' }) do |csv| 
       #header row
-      csv << [ "Titre", "Soustitre",
-        "Orateurs", "Créée", "Modifiée",
+      csv << [ "Titre", "Soustitre", "Orateurs", "Créée", "Modifiée",
         "Langue", "Nature", "Durée",
         "Revue",
         "Objectif",
@@ -102,8 +101,8 @@ class SessionsController < ApplicationController
         "Desc. Courte" ]
       #data row
       @sessions.each do |session| 
-        csv << [ session.title, session.sub_title, 
-          session.presenter_names, session.created_at, session.updated_at,
+        csv << [ session.title, session.sub_title, @show_presenter_active ? session.presenter_names : "(hidden)",
+          session.created_at, session.updated_at,
           session.session_type, session.topic_name, session.duration,
           session.reviews.size,
           session.session_goal,
