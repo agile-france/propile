@@ -11,7 +11,7 @@
           <p>J'aimerai aller à</p>
           <ul>
             <% my_sessions.each do |this_session|%>
-              <li><%= link_to w(this_session.title) , this_session %> par <%= session_presenter_names(this_session) %></li>
+              <li><%= link_to w(this_session.title) , this_session %> <% if @show_presenter_active  %> par <%= session_presenter_names(this_session) %> <% end %></li>
             <% end %>
           </ul>
         <% end %>
